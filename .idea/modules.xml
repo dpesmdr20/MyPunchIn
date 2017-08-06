@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyPunchIn.iml" filepath="$PROJECT_DIR$/.idea/modules/MyPunchIn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyPunchIn_main.iml" filepath="$PROJECT_DIR$/.idea/modules/MyPunchIn_main.iml" group="MyPunchIn" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyPunchIn_test.iml" filepath="$PROJECT_DIR$/.idea/modules/MyPunchIn_test.iml" group="MyPunchIn" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Web/Web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Web/Web_main.iml" group="Web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Web/Web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Web/Web_test.iml" group="Web" />
     </modules>
   </component>
 </project>
