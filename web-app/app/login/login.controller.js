@@ -2,11 +2,19 @@
  * Created by dpesmdr on 8/6/17.
  */
 angular.
-module('login',[]).
-controller('LoginController',['$scope','$location',function($scope,$location) {
-    $scope.myUrl = $location.absUrl();
-    var port = 8080;
-    $scope.login = function (uname,pass){
-        var rootUrl = "http://localhost:"+port+"MyPunchIn/login";
+module('controller',[]).
+controller('LoginController',['$scope','$http',function($scope,$http) {
+    $scope.login = function (uname, pass) {
+        /*loginService.checkLogin.get({
+         uname: uname,
+         pass: pass,
+         }).$promise.then(function (data) {
+         $scope.msg = data.message;
+         })}*/
+        $http({
+            url:'/login/username=' + uname + '&password=' + pass,
+            method: "GET",
+            responseType: 'arraybuffer'
+        })
     }
-}]);
+}])
