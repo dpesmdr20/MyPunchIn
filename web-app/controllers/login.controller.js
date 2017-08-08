@@ -2,9 +2,10 @@
  * Created by dpesmdr on 8/6/17.
  */
 angular.
-module('controller',[]).
+module('loginController',[]).
 controller('LoginController',['$scope','$http',function($scope,$http) {
-    $scope.login = function (uname, pass) {
+    $scope.login = function (uname, upass) {
+        var rootUrl = "/MyPunchIn"
         /*loginService.checkLogin.get({
          uname: uname,
          pass: pass,
@@ -12,9 +13,8 @@ controller('LoginController',['$scope','$http',function($scope,$http) {
          $scope.msg = data.message;
          })}*/
         $http({
-            url:'/login/username=' + uname + '&password=' + pass,
-            method: "GET",
-            responseType: 'arraybuffer'
-        })
+            url:'/login/?username='+uname+'&password='+upass,
+            method: "GET"
+        });
     }
-}])
+}]);

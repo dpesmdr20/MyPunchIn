@@ -1,5 +1,7 @@
 package com.dpesmdr20.mypunchin.Utils;
 
+import io.vertx.core.Vertx;
+import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.json.JsonObject;
 
 /**
@@ -8,6 +10,8 @@ import io.vertx.core.json.JsonObject;
 public class ConfigProvider {
     private JsonObject config;
     private static ConfigProvider instance = null;
+    private Vertx vertx;
+    private EventBus eventBus;
 
 
     public static ConfigProvider getInstance(){
@@ -22,5 +26,21 @@ public class ConfigProvider {
 
     public void setConfig(JsonObject config) {
         this.config = config;
+    }
+
+    public Vertx getVertx() {
+        return vertx;
+    }
+
+    public void setVertx(Vertx vertx) {
+        this.vertx = vertx;
+    }
+
+    public EventBus getEventBus() {
+        return eventBus;
+    }
+
+    public void setEventBus(EventBus eventBus) {
+        this.eventBus = eventBus;
     }
 }

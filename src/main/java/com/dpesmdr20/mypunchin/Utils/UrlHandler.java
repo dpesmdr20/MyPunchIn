@@ -8,10 +8,10 @@ import io.vertx.ext.web.handler.BodyHandler;
  * Created by dimanandhar on 8/7/17.
  */
 public class UrlHandler {
-    public static Router getRoutes(Router router) {
+    public static Router getRouter(Router router) {
+        System.out.println("Inside UrlHandler");
         router.route().handler(BodyHandler.create());
-        router.get("/login/username:uname&password:pass").handler(RouteHandlers::checkUser);
         return router;
     }
 }
-//http://localhost:9000/MyPunchIn/login/?username=dfdf&password=dfdf
+//http://localhost:9000/MyPunchIn/login/username=dfdf&password=dfdf
