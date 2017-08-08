@@ -4,6 +4,7 @@ import com.dpesmdr20.mypunchin.Utils.ConfigProvider;
 import com.dpesmdr20.mypunchin.Utils.UrlHandler;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.ext.web.Router;
+import io.vertx.ext.web.handler.StaticHandler;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -20,9 +21,9 @@ public class Server extends AbstractVerticle{
         confProvider.setConfig(vertx.getOrCreateContext().config());
 
         Router router = Router.router(vertx);
-        router = UrlHandler.getRoutes(router);
-
-        vertx.createHttpServer().requestHandler(router::accept).listen(confProvider.getConfig().getInteger("port"));
+        //router = UrlHandler.getRoutes(router);
+        router.route("/templates/*").handler(StaticHandler.create("web-app/app/templates"));
+        vertx.createHttpServer().requestHandler(router::accept).listen(8080);
     }
 
     public boolean checkUser(String uname,String pass){
