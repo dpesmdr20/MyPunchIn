@@ -2,19 +2,18 @@
  * Created by dpesmdr on 8/6/17.
  */
 angular.
-module('loginController',[]).
+module('loginController',['punchInController']).
 controller('LoginController',['$scope','$http',function($scope,$http) {
     $scope.login = function (uname, upass) {
-        var rootUrl = "/MyPunchIn"
-        /*loginService.checkLogin.get({
-         uname: uname,
-         pass: pass,
-         }).$promise.then(function (data) {
-         $scope.msg = data.message;
-         })}*/
+        $scope.date = new Date();
         $http({
             url:'/login/?username='+uname+'&password='+upass,
             method: "GET"
-        });
-    }
+        })
+        .then(function(response) {
+            $scope.checkLogin = response.data["login"];
+            $scope.showPunchIn = false;
+            if($scope.checkLogin=="success")
+                $scope.showPunchIn = true;
+        });}
 }]);
